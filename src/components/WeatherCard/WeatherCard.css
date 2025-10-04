@@ -1,0 +1,18 @@
+.weather__card-container {
+  background-image: url("../../../public/images/sunny.png");
+  height: 80px;
+  width: 1360px;
+}
+
+.forecast {
+  margin-top: 1.5%;
+  margin-left: 1%;
+}
+
+.weather__results {
+  padding: 18px;
+  height: 69px;
+  width: 40px;
+  color: #ffffff;
+  font-size: 38px;
+}

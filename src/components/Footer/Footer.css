@@ -1,0 +1,8 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright__year{}
+
+.copyright__name{}

@@ -1,0 +1,68 @@
+.item__modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 50;
+  visibility: hidden;
+}
+
+.modal_is-opened {
+  visibility: visible;
+}
+
+.item__modal__form {
+  border-radius: 20px;
+  height: 600px;
+  width: 505px;
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.item__modal__weather,
+.item__modal__title {
+  font-weight: bold;
+  margin-top: 9px;
+  font-size: 17px;
+  margin-left: 10px;
+}
+
+.modal__close-btn-delete-modal {
+  cursor: pointer;
+  /* background-image: url(images/delete-close-btn.png); */
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  opacity: 100%;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 25px;
+}
+
+.modal__save-btn {
+  margin-top: 65px;
+  width: 124px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0);
+  color: #ffffff;
+  border: none;
+}
+
+.modal__save-btn:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+}

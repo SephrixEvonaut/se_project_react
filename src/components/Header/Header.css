@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Cabinet Grotesk Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Cabinet Grotesk Regular"),
+    url("../../vendor/fonts/CabinetGrotesk-Regular.woff") format("woff");
+}
+
+.header {
+  display: flex;
+  /* width: 1360; */
+  height: 80px;
+  /* top: 32px;
+  left: 40px; */
+  justify-content: space-between;
+  align-content: center;
+}
+
+.logo__section {
+  display: flex;
+  width: 50%;
+  justify-content: flex-start;
+  gap: 5%;
+}
+
+.logo__image {
+  width: 89;
+  height: 40;
+}
+
+.location-date {
+  display: flex;
+  font-family: "Cabinet Grotesk Regular";
+  font-weight: 700;
+  font-style: bold;
+  font-size: 24px;
+  /* line-height: 24px; */
+  width: 40%;
+  gap: 2%;
+  align-items: center;
+}
+
+.avatar__section {
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+  gap: 1%;
+}
+
+.add-clothes_btn {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: bold;
+  font: "Cabinet Grotesk";
+  background-color: #ffffff;
+  border: none;
+}
+
+.header__username {
+  font-weight: 700;
+  font-size: 20px;
+  font-style: bold;
+  font-family: "Cabinet Grotesk Regular";
+}
