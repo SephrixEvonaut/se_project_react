@@ -1,5 +1,4 @@
-import React from "react";
-import "./itemModal.css";
+import "./ItemModal.css";
 
 export default function ItemModal({ card, weatherData }) {
   function handleClose() {
