@@ -1,8 +1,14 @@
-.footer{
-    display: flex;
-    justify-content: space-between;
+.footer {
+  display: flex;
+  justify-content: space-between;
 }
 
-.copyright__year{}
+.copyright__year {
+  margin: 0;
+  padding: 0;
+}
 
-.copyright__name{}
+.copyright__name {
+  margin: 0;
+  padding: 0;
+}

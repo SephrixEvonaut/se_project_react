@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { apiKey, latitude, longitude } from "../../utils/constants";
 import "./Header.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-export default function Header() {
-  const [data, setData] = useState({});
+export default function Header(props) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -15,25 +12,14 @@ export default function Header() {
       .forEach((el) => (el.style.visibility = "visible"));
   }
 
-  async function fetchWeatherData() {
-    let weatherData = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`
-    );
-    let weatherDataJSON = await weatherData.json();
-    setData(weatherDataJSON);
-  }
-  useEffect(() => {
-    fetchWeatherData();
-  }, []);
-  console.log(data);
   return (
     <>
       <div className="header">
         <div className="logo__section">
-          <img className="logo__image" src="images/Logo.svg" alt="" />
+          <img className="logo__image" src="images/Logo.svg" alt="App logo" />
           <div className="location-date">
             <span>{currentDate}</span>
-            <span>{data.name}</span>
+            <span>{props.weatherData.name}</span>
           </div>
         </div>
         <div className="avatar__section">
@@ -45,7 +31,7 @@ export default function Header() {
             + Add clothes
           </button>
           <div className="header__username">Terrance Tegegne</div>
-          <img src="images/avatar.png" alt="" />
+          <img src="images/avatar.png" alt="User Avatar" />
         </div>
       </div>
       <ModalWithForm></ModalWithForm>

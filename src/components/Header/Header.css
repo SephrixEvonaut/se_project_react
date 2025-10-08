@@ -20,12 +20,13 @@
   display: flex;
   width: 50%;
   justify-content: flex-start;
+  align-items: center;
   gap: 5%;
 }
 
 .logo__image {
-  width: 89;
-  height: 40;
+  width: 89px;
+  height: 40px;
 }
 
 .location-date {
@@ -52,7 +53,6 @@
 .add-clothes_btn {
   font-weight: 700;
   font-size: 20px;
-  font-style: bold;
   font: "Cabinet Grotesk";
   background-color: #ffffff;
   border: none;

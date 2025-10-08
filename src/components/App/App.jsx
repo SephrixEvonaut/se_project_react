@@ -22,8 +22,8 @@ function App() {
   return (
     <>
       <div className="page">
-        <Header />
-        <Main Cards={clothingItems} weatherData={weatherData} />
+        <Header weatherData={weatherData} />
+        <Main cards={clothingItems} weatherData={weatherData} />
         <Footer />
       </div>
     </>
