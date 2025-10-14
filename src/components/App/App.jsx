@@ -5,19 +5,28 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import { defaultClothingItems } from "../../utils/clothingItems";
 import { getWeatherCondition } from "../../utils/weatherApi";
+import ItemModal from "../ItemModal/ItemModal";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({}); // initially, weatherData = {}
   const fetchWeatherData = async () => {
     const weatherDataRes = await getWeatherCondition();
-    setWeatherData(weatherDataRes);
+    setWeatherData(weatherDataRes); // under the hood: weatherData = weatherDataRes
   };
   useEffect(() => {
     fetchWeatherData();
     setClothingItems(defaultClothingItems);
   }, []);
+
+  function handleOpenItemModal(card) {
+       setSelectedCard(card)
+
+    document
+      .querySelectorAll(".item__modal")
+      .forEach((el) => (el.style.visibility = "visible"));
+  }
 
   return (
     <>
@@ -26,6 +35,7 @@ function App() {
         <Main cards={clothingItems} weatherData={weatherData} />
         <Footer />
       </div>
+      <ItemModal card= {selectedCard}/>
     </>
   );
 }

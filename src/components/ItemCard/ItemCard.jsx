@@ -3,11 +3,7 @@ import "./ItemCard.css";
 import ItemModal from "../ItemModal/ItemModal";
 
 export default function ItemCard({ card }) {
-  function handleOpen() {
-    document
-      .querySelectorAll(".item__modal")
-      .forEach((el) => (el.style.visibility = "visible"));
-  }
+  
   return (
     <div
       onClick={() => {

@@ -18,18 +18,15 @@ export default function WeatherCard({ weatherData }) {
 
   useEffect(() => {
     let dayOrNight = getDayOrNight(weatherData?.dt);
-    let weather = weatherData?.weather?.length
-      ? weatherData?.weather[0]?.main
-      : "";
+    let weather = weatherData ? weatherData?.type : "";
     if (weather === "Drizzle") {
       weather = "Rain";
     }
     const element = document.querySelector(".weather__card-container");
-    element.style.backgroundImage = `url('images/${weather + dayOrNight}.png')`;
+    element.style.backgroundImage = `url('/images/${
+      weather+dayOrNight
+    }.png')`;
   }, [weatherData]);
-
-  // Example:
-  console.log(getDayOrNight(weatherData?.dt)); // -> "night"
 
   return (
     <>

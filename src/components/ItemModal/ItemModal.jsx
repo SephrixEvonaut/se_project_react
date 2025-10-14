@@ -13,9 +13,7 @@ export default function ItemModal({ card, weatherData }) {
           <img src={card?.link} />
           <div className="item__modal__title">{card?.name}</div>
           <div className="item__modal__weather">
-            {`Weather: ${
-              weatherData?.weather?.length && weatherData?.weather[0]?.main
-            }`}
+            {`Weather: ${card.weather}`}
           </div>
           <button
             onClick={handleClose}

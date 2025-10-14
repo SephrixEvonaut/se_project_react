@@ -33,7 +33,7 @@ export default function ModalWithForm() {
   }
   return (
     <div className="modal">
-      <div className="modal__form">
+      <form className="modal__form">
         <div className="input__modal">
           <label htmlFor="name">Name</label>
           <input
@@ -59,20 +59,36 @@ export default function ModalWithForm() {
         <div className="input__modal">
           <p>Select weather type:</p>
           <div className="input__checkbox">
-            <input type="radio" id="hot" required />
+            <input
+              onChange={(e) => setWeatherType(e.target.value)}
+              name="weather"
+              type="radio"
+              value="hot"
+              id="hot"
+              required
+            />
             <label htmlFor="hot">hot</label>
           </div>
           <div className="input__checkbox">
             <input
               onChange={(e) => setWeatherType(e.target.value)}
+              name="weather"
               type="radio"
+              value="warm"
               id="warm"
               required
             />
             <label htmlFor="warm">warm</label>
           </div>
           <div className="input__checkbox">
-            <input type="radio" id="cold" required />
+            <input
+              onChange={(e) => setWeatherType(e.target.value)}
+              name="weather"
+              type="radio"
+              value="cold"
+              id="cold"
+              required
+            />
             <label htmlFor="cold">cold</label>
           </div>
         </div>
@@ -83,7 +99,7 @@ export default function ModalWithForm() {
         <button onClick={handleClose} className="modal__close-btn-delete-modal">
           x
         </button>
-      </div>
+      </form>
     </div>
   );
 }
