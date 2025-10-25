@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   function handleOpenItemModal(card) {
-       setSelectedCard(card)
+    setSelectedCard(card);
 
     document
       .querySelectorAll(".item__modal")
@@ -32,10 +32,15 @@ function App() {
     <>
       <div className="page">
         <Header weatherData={weatherData} />
-        <Main cards={clothingItems} weatherData={weatherData} />
+        <Main
+          selectedCard={selectedCard}
+          handleOpenItemModal={handleOpenItemModal}
+          cards={clothingItems}
+          weatherData={weatherData}
+        />
         <Footer />
       </div>
-      <ItemModal card= {selectedCard}/>
+      <ItemModal selectedCard={selectedCard} card={selectedCard} />
     </>
   );
 }

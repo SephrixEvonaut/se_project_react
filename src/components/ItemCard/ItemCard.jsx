@@ -2,12 +2,11 @@ import React from "react";
 import "./ItemCard.css";
 import ItemModal from "../ItemModal/ItemModal";
 
-export default function ItemCard({ card }) {
-  
+export default function ItemCard({ card, handleOpenItemModal }) {
   return (
     <div
       onClick={() => {
-        handleOpen();
+        handleOpenItemModal(card);
       }}
       className="item__card-section"
     >

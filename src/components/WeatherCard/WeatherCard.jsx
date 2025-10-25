@@ -23,16 +23,14 @@ export default function WeatherCard({ weatherData }) {
       weather = "Rain";
     }
     const element = document.querySelector(".weather__card-container");
-    element.style.backgroundImage = `url('/images/${
-      weather+dayOrNight
-    }.png')`;
+    element.style.backgroundImage = `url('images/${weather + dayOrNight}.png')`;
   }, [weatherData]);
 
   return (
     <>
       <div className="weather__card-container">
         <div className="weather__card"></div>
-        <div className="weather__results">{weatherData?.main?.temp}°F</div>
+        <div className="weather__results">{weatherData?.temperature}°F</div>
       </div>
     </>
   );

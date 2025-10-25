@@ -1,11 +1,12 @@
 import "./ItemModal.css";
 
-export default function ItemModal({ card, weatherData }) {
+export default function ItemModal({ card, weatherData, selectedCard }) {
   function handleClose() {
     document
       .querySelectorAll(".item__modal")
       .forEach((el) => (el.style.visibility = "hidden"));
   }
+  console.log(selectedCard);
   return (
     <>
       <div className="item__modal">

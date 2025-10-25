@@ -11,7 +11,7 @@ export default function Header(props) {
       .querySelectorAll(".modal")
       .forEach((el) => (el.style.visibility = "visible"));
   }
-
+  console.log(props);
   return (
     <>
       <div className="header">
@@ -19,7 +19,7 @@ export default function Header(props) {
           <img className="logo__image" src="images/Logo.svg" alt="App logo" />
           <div className="location-date">
             <span>{currentDate}</span>
-            <span>{props.weatherData.name}</span>
+            <span>{props.weatherData.city}</span>
           </div>
         </div>
         <div className="avatar__section">
