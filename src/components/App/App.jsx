@@ -8,13 +8,21 @@ import { getWeatherCondition } from "../../utils/weatherApi";
 import ItemModal from "../ItemModal/ItemModal";
 
 function App() {
+  const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
   const [weatherData, setWeatherData] = useState({}); // initially, weatherData = {}
   const fetchWeatherData = async () => {
-    const weatherDataRes = await getWeatherCondition();
-    setWeatherData(weatherDataRes); // under the hood: weatherData = weatherDataRes
+    try {
+      const weatherDataRes = await getWeatherCondition();
+      setWeatherData(weatherDataRes); // under the hood: weatherData = weatherDataRes
+    } catch (error) {
+      console.error("❌ Error fetching weather data:", error);
+      // optional: handle the error visually or through state
+      setWeatherData(null);
+    }
   };
+
   useEffect(() => {
     fetchWeatherData();
     setClothingItems(defaultClothingItems);
@@ -23,15 +31,17 @@ function App() {
   function handleOpenItemModal(card) {
     setSelectedCard(card);
 
-    document
-      .querySelectorAll(".item__modal")
-      .forEach((el) => (el.style.visibility = "visible"));
+    setActiveModal("itemModal");
   }
 
   return (
     <>
       <div className="page">
-        <Header weatherData={weatherData} />
+        <Header
+          weatherData={weatherData}
+          activeModal={activeModal}
+          setActiveModal={setActiveModal}
+        />
         <Main
           selectedCard={selectedCard}
           handleOpenItemModal={handleOpenItemModal}
@@ -40,7 +50,12 @@ function App() {
         />
         <Footer />
       </div>
-      <ItemModal selectedCard={selectedCard} card={selectedCard} />
+      <ItemModal
+        selectedCard={selectedCard}
+        card={selectedCard}
+        isOpen={activeModal === "itemModal"}
+        setActiveModal={setActiveModal}
+      />
     </>
   );
 }

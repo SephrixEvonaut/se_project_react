@@ -5,6 +5,7 @@
 }
 
 .item__card {
+  position: relative;
   width: 325px;
   height: 328px;
   margin-bottom: 30px;
@@ -16,7 +17,10 @@
   margin-left: 1%;
 }
 
-
+.item__title {
+  position: absolute;
+  left: 40%;
+}
 
 .item__image {
   width: 100%;

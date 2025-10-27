@@ -16,7 +16,7 @@ export default function Main({
 
   // .filter((card) => card.weather === weatherData.type)
   return (
-    <>
+    <main>
       <WeatherCard weatherData={weatherData} />
 
       <div className="forecast">
@@ -31,11 +31,6 @@ export default function Main({
           />
         ))}
       </div>
-      <ItemModal
-        selectedCard={selectedCard}
-        weatherData={weatherData}
-        card={cards}
-      />
-    </>
+    </main>
   );
 }

@@ -1,8 +1,9 @@
 import React from "react";
 import "./WeatherCard.css";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function WeatherCard({ weatherData }) {
+  const weatherCardRef = useRef(null);
   function getDayOrNight(dt) {
     // Convert Unix timestamp to UTC Date
     const date = new Date(dt * 1000); // JS expects ms
@@ -22,16 +23,14 @@ export default function WeatherCard({ weatherData }) {
     if (weather === "Drizzle") {
       weather = "Rain";
     }
-    const element = document.querySelector(".weather__card-container");
+    const element = weatherCardRef.current;
     element.style.backgroundImage = `url('images/${weather + dayOrNight}.png')`;
   }, [weatherData]);
 
   return (
-    <>
-      <div className="weather__card-container">
-        <div className="weather__card"></div>
-        <div className="weather__results">{weatherData?.temperature}°F</div>
-      </div>
-    </>
+    <div className="weather__card-container" ref={weatherCardRef}>
+      <div className="weather__card"></div>
+      <div className="weather__results">{weatherData?.temperature}°F</div>
+    </div>
   );
 }
