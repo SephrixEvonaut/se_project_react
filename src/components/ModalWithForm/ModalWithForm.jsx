@@ -5,13 +5,13 @@ import { useState, useEffect } from "react";
 
 export default function ModalWithForm({
   isOpen,
-  setActiveModal,
+  handleClose,
   buttonText,
   children,
   image,
   name,
-  weatherType, 
-  heading
+  weatherType,
+  heading,
 }) {
   const [isDisabled, setIsDisabled] = useState(true);
   useEffect(() => {
@@ -22,14 +22,6 @@ export default function ModalWithForm({
       // document.querySelector(".modal__save-btn")?.classList.remove("disabled");
     }
   }, [name, image, weatherType]);
-
-  function handleClose(e) {
-    e.preventDefault();
-    setActiveModal("");
-    // document
-    //   .querySelectorAll(".modal")
-    //   .forEach((el) => (el.style.visibility = "hidden"));
-  }
 
   function validateInputs() {
     if (!name || !image || !weatherType) return false;
@@ -53,7 +45,11 @@ export default function ModalWithForm({
           {buttonText}
         </button>
 
-        <button onClick={handleClose} className="modal__close-btn-delete-modal">
+        <button
+          onClick={handleClose}
+          className="modal__close-btn-delete-modal"
+          type="button"
+        >
           x
         </button>
       </form>

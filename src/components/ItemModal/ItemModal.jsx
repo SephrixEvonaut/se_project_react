@@ -4,15 +4,10 @@ export default function ItemModal({
   card,
   weatherData,
   selectedCard,
-  setActiveModal,
+  handleClose,
   isOpen,
 }) {
-  function handleClose() {
-    // document
-    //   .querySelectorAll(".item__modal")
-    //   .forEach((el) => (el.style.visibility = "hidden"));
-    setActiveModal("");
-  }
+  
   console.log(selectedCard);
   return (
     <div className={`${isOpen ? "itemModal_is-opened" : "item__modal"}`}>
