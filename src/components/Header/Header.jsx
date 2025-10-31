@@ -9,28 +9,25 @@ export default function Header(props) {
   });
   console.log(props);
   return (
-    <>
-      <div className="header">
-        <div className="logo__section">
-          <img className="logo__image" src="images/Logo.svg" alt="App logo" />
-          <div className="location-date">
-            <span>{currentDate}</span>
-            <span>{props.weatherData.city}</span>
-          </div>
-        </div>
-        <div className="avatar__section">
-          <button
-            type="button"
-            onClick={props.handleOpen}
-            className="add-clothes_btn"
-          >
-            + Add clothes
-          </button>
-          <div className="header__username">Terrance Tegegne</div>
-          <img src="images/avatar.png" alt="User Avatar" />
+    <div className="header">
+      <div className="logo__section">
+        <img className="logo__image" src="images/Logo.svg" alt="App logo" />
+        <div className="location-date">
+          <span>{currentDate}</span>
+          <span>{props.weatherData.city}</span>
         </div>
       </div>
-    
-    </>
+      <div className="avatar__section">
+        <button
+          type="button"
+          onClick={props.handleOpen}
+          className="add-clothes_btn"
+        >
+          + Add clothes
+        </button>
+        <div className="header__username">Terrance Tegegne</div>
+        <img src="images/avatar.png" alt="User Avatar" />
+      </div>
+    </div>
   );
 }

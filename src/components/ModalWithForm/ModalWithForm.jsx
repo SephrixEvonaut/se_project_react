@@ -8,31 +8,9 @@ export default function ModalWithForm({
   handleClose,
   buttonText,
   children,
-  image,
-  name,
-  weatherType,
+  isDisabled,
   heading,
 }) {
-  const [isDisabled, setIsDisabled] = useState(true);
-  useEffect(() => {
-    let validationPassed = validateInputs();
-    if (validationPassed) {
-      console.log("removing disable");
-      setIsDisabled(false);
-      // document.querySelector(".modal__save-btn")?.classList.remove("disabled");
-    }
-  }, [name, image, weatherType]);
-
-  function validateInputs() {
-    if (!name || !image || !weatherType) return false;
-
-    try {
-      new URL(image);
-      return true;
-    } catch {
-      return false;
-    }
-  }
   return (
     <div className={`${isOpen ? "modal_is-opened" : "modal"}`}>
       <form className="modal__form">

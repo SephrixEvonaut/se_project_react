@@ -36,11 +36,10 @@ function App() {
     // document
     //   .querySelectorAll(".modal")
     //   .forEach((el) => (el.style.visibility = "visible"));
-    setActiveModal("formModal");
+    setActiveModal("garmentModal");
   }
 
   function handleClose(e) {
-    e.preventDefault();
     setActiveModal("");
     // document
     //   .querySelectorAll(".modal")
@@ -52,6 +51,27 @@ function App() {
 
     setActiveModal("itemModal");
   }
+
+  function validateInputs() {
+    if (!name || !image || !weatherType) return false;
+
+    try {
+      new URL(image);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  const [isDisabled, setIsDisabled] = useState(true);
+  useEffect(() => {
+    let validationPassed = validateInputs();
+    if (validationPassed) {
+      console.log("removing disable");
+      setIsDisabled(false);
+      // document.querySelector(".modal__save-btn")?.classList.remove("disabled");
+    }
+  }, [name, image, weatherType]);
 
   return (
     <>
@@ -72,11 +92,9 @@ function App() {
         handleClose={handleClose}
       />
       <ModalWithForm
-        name={name}
-        image={image}
-        weatherType={weatherType}
+        isDisabled ={isDisabled}
         handleClose={handleClose}
-        isOpen={activeModal === "formModal"}
+        isOpen={activeModal === "garmentModal"}
         buttonText="Add Garment"
         heading="New Garment"
       >
