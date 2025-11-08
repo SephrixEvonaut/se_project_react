@@ -13,7 +13,11 @@ export async function getWeatherCondition() {
     let weatherDataJSON = await weatherData.json();
     console.log(weatherDataJSON);
     weatherResponse.city = weatherDataJSON.name;
-    weatherResponse.temperature = weatherDataJSON.main.temp;
+    weatherResponse.temperature = {};
+    weatherResponse.temperature.F = weatherDataJSON.main.temp;
+    weatherResponse.temperature.C = Math.round(
+      ((weatherDataJSON.main.temp - 32) * 5) / 9
+    );
     weatherResponse.type = weatherDataJSON.weather[0].main;
     weatherResponse.dt = weatherDataJSON.dt;
 

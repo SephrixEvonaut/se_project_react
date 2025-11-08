@@ -16,6 +16,13 @@
   align-content: center;
 }
 
+.header_buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 70%;
+  gap: 8%;
+}
+
 .logo__section {
   display: flex;
   width: 50%;

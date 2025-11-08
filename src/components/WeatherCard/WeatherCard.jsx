@@ -1,8 +1,10 @@
 import React from "react";
 import "./WeatherCard.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 export default function WeatherCard({ weatherData }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const weatherCardRef = useRef(null);
   function getDayOrNight(dt) {
     // Convert Unix timestamp to UTC Date
@@ -30,7 +32,11 @@ export default function WeatherCard({ weatherData }) {
   return (
     <div className="weather__card-container" ref={weatherCardRef}>
       <div className="weather__card"></div>
-      <div className="weather__results">{weatherData?.temperature}°F</div>
+      <div className="weather__results">
+        {weatherData?.temperature &&
+          weatherData?.temperature[currentTemperatureUnit]}
+        °{currentTemperatureUnit}
+      </div>
     </div>
   );
 }

@@ -10,10 +10,11 @@ export default function ModalWithForm({
   children,
   isDisabled,
   heading,
+  handleSubmit,
 }) {
   return (
     <div className={`${isOpen ? "modal_is-opened" : "modal"}`}>
-      <form className="modal__form">
+      <form onSubmit={handleSubmit} className="modal__form">
         <h2> {heading}</h2>
         {children}
         <button

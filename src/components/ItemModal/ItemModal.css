@@ -76,3 +76,33 @@
 .disabled {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.item-modal__delete-btn {
+  color: #ff4d00;
+  transition: 0.2s;
+  /* justify-self: flex-end; */
+  margin-right: 32px;
+  margin-top: 9px;
+  border: none;
+  font-size: 20px;
+  background-color: inherit;
+}
+
+.item-modal__delete-btn_visibile {
+  visibility: visible;
+}
+
+.item-modal__delete-btn_hidden {
+  visibility: hidden;
+}
+
+.item-modal__delete-btn:hover {
+  cursor: pointer;
+  color: #ff4d00cc;
+}
+
+.item__details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

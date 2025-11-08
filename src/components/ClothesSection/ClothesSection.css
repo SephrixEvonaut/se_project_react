@@ -1,0 +1,14 @@
+.clothing__section-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 700;
+}
+
+.ownership__title {
+  font-weight: bold;
+}
+
+.add-new {
+  opacity: 0.6;
+}
