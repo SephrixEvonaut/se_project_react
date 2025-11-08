@@ -13,7 +13,7 @@ export default function Header(props) {
   return (
     <div className="header">
       <div className="logo__section">
-        <Link to={{ pathname: "/se_project_react/" }}>
+        <Link to={{ pathname: "/" }}>
           <img className="logo__image" src="images/Logo.svg" alt="App logo" />
         </Link>
         <div className="location-date">
@@ -32,7 +32,7 @@ export default function Header(props) {
             + Add clothes
           </button>
           <div className="header__username">Terrance Tegegne</div>
-          <Link to={{ pathname: "/se_project_react/profile" }}>
+          <Link to={{ pathname: "/profile" }}>
             <img src="images/avatar.png" alt="User Avatar" />
           </Link>
         </div>

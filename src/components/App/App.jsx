@@ -146,7 +146,7 @@ function App() {
 
           <Routes>
             <Route
-              path="/se_project_react/profile"
+              path="/profile"
               element={
                 <Profile
                   cards={clothingItems}
@@ -159,7 +159,7 @@ function App() {
               }
             ></Route>
             <Route
-              path="/se_project_react/"
+              path="/"
               element={
                 <Main
                   selectedCard={selectedCard}
