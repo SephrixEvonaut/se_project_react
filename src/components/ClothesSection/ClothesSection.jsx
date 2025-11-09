@@ -11,7 +11,7 @@ const ClothesSection = ({
   currentTemperatureUnit,
   handleSubmit,
 }) => {
-  const filteredCards = cards.filter(
+  const filteredCards = (cards || []).filter(
     (card) =>
       card.weather ===
       checkWeatherType(
@@ -19,7 +19,7 @@ const ClothesSection = ({
           weatherData?.temperature[currentTemperatureUnit]
       )
   );
-  console.log(filteredCards);
+  // console.log(filteredCards);
   return (
     <div>
       <div className="clothing__section-header">

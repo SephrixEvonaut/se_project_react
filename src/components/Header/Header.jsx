@@ -1,7 +1,7 @@
 import "./Header.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import { useState } from "react";
-import ToggleSwitch from "../toggleSwitch/toggleSwitch";
+// import { useState } from "react";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
 
 export default function Header(props) {
@@ -9,12 +9,12 @@ export default function Header(props) {
     month: "long",
     day: "numeric",
   });
-  console.log(props);
+  // console.log(props);
   return (
     <div className="header">
       <div className="logo__section">
         <Link to={{ pathname: "/" }}>
-          <img className="logo__image" src="images/Logo.svg" alt="App logo" />
+          <img className="logo__image" src="/images/Logo.svg" alt="App logo" />
         </Link>
         <div className="location-date">
           <span>{currentDate}</span>
@@ -33,7 +33,7 @@ export default function Header(props) {
           </button>
           <div className="header__username">Terrance Tegegne</div>
           <Link to={{ pathname: "/profile" }}>
-            <img src="images/avatar.png" alt="User Avatar" />
+            <img src="/images/avatar.png" alt="User Avatar" />
           </Link>
         </div>
       </div>

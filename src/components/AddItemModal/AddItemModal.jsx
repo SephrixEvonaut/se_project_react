@@ -1,7 +1,7 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
-import { postClothingItems } from "../../utils/clothingItems";
+import { postClothingItems } from "../../utils/Api";
 
 const AddItemModal = ({
   isOpen,
@@ -30,10 +30,10 @@ const AddItemModal = ({
       // optional: handle the error visually or through state
       // setClothingItems(null);
       await fetchClothingItems();
-      handleClose();
+      // handleClose();
     }
   }
-  console.log(values.name, values.image, values.weatherType);
+  // console.log(values.name, values.image, values.weatherType);
   return (
     <ModalWithForm
       isDisabled={isDisabled}

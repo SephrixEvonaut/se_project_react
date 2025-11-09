@@ -23,7 +23,7 @@ export default function Main({
       )
   );
 
-  console.log(currentTemperatureUnit);
+  // console.log(currentTemperatureUnit);
 
   // .filter((card) => card.weather === weatherData.type)
   return (

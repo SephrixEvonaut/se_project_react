@@ -11,7 +11,7 @@ export async function getWeatherCondition() {
 
     let weatherResponse = {};
     let weatherDataJSON = await weatherData.json();
-    console.log(weatherDataJSON);
+    // console.log(weatherDataJSON);
     weatherResponse.city = weatherDataJSON.name;
     weatherResponse.temperature = {};
     weatherResponse.temperature.F = weatherDataJSON.main.temp;
@@ -21,7 +21,7 @@ export async function getWeatherCondition() {
     weatherResponse.type = weatherDataJSON.weather[0].main;
     weatherResponse.dt = weatherDataJSON.dt;
 
-    console.log(weatherResponse);
+    // console.log(weatherResponse);
     return weatherResponse;
     weatherData.Response;
   } catch (error) {

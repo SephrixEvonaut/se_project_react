@@ -4,7 +4,7 @@ export function useForm(defaultValues) {
   const [values, setValues] = useState(defaultValues);
 
   const handleChange = (event) => {
-    console.log("handleChange is being called");
+    // console.log("handleChange is being called");
     const { value, name } = event.target;
     setValues({ ...values, [name]: value });
   };

@@ -7,7 +7,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar__section">
         <Link to={{ pathname: "/profile" }}>
-          <img src="images/avatar.png" alt="User Avatar" />
+          <img src="/images/avatar.png" alt="User Avatar" />
         </Link>
         <div className="header__username">Terrance Tegegne</div>
       </div>

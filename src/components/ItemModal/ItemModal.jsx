@@ -15,7 +15,7 @@ export default function ItemModal({
   // const itemDeleteBtnClassName = `item-modal__delete-btn ${
   //   isOwn ? "item-modal__delete-btn_visible" : "item-modal__delete-btn_hidden"
   // }`;
-  console.log(selectedCard);
+  // console.log(selectedCard);
   return (
     <div className={`${isOpen ? "itemModal_is-opened" : "item__modal"}`}>
       <div className="item__modal__form">

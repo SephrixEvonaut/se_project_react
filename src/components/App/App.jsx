@@ -8,7 +8,7 @@ import {
   deleteClothingItems,
   getClothingItems,
   postClothingItems,
-} from "../../utils/clothingItems";
+} from "../../utils/Api";
 import { getWeatherCondition } from "../../utils/weatherApi";
 import ItemModal from "../ItemModal/ItemModal";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -44,7 +44,7 @@ function App() {
     } catch (error) {
       console.error("❌ Error fetching clothing items:", error);
       // optional: handle the error visually or through state
-      setClothingItems(null);
+      setClothingItems([]);
     }
   };
 
@@ -61,22 +61,19 @@ function App() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(name, image, weatherType);
+    // console.log(name, image, weatherType);
     try {
       const postClothingItemsRes = await postClothingItems(
         name,
         image,
         weatherType
       );
-      await fetchClothingItems();
+      setClothingItems((prev) => [postClothingItemsRes, ...prev]);
       handleClose();
-      // setClothingItems(postClothingItemsRes);
+      // sesetClothingItems(postClothingItemsRes);
     } catch (error) {
       console.error("❌ Error posting clothing items:", error);
       // optional: handle the error visually or through state
-      setClothingItems(null);
-      await fetchClothingItems();
-      handleClose();
     }
   }
 
@@ -130,7 +127,7 @@ function App() {
   useEffect(() => {
     let validationPassed = validateInputs();
     if (validationPassed) {
-      console.log("removing disable");
+      // console.log("removing disable");
       setIsDisabled(false);
       // document.querySelector(".modal__save-btn")?.classList.remove("disabled");
     }
@@ -153,7 +150,7 @@ function App() {
                   weatherData={weatherData}
                   handleOpenItemModal={handleOpenItemModal}
                   handleOpen={handleOpen}
-                  currentTemperatureUnit="F"
+                  currentTemperatureUnit={currentTemperatureUnit}
                   handleSubmit={handleSubmit}
                 ></Profile>
               }
@@ -180,7 +177,7 @@ function App() {
           handleClose={handleClose}
           onDeleteClick={onDeleteClick}
         />
-        <ModalWithForm
+        {/* <ModalWithForm
           isDisabled={isDisabled}
           handleClose={handleClose}
           isOpen={activeModal === "garmentModal"}
@@ -246,7 +243,7 @@ function App() {
               <label htmlFor="cold">cold</label>
             </div>
           </div>
-        </ModalWithForm>
+        </ModalWithForm> */}
         <AddItemModal
           isDisabled={isDisabled}
           handleClose={handleClose}

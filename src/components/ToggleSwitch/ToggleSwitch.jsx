@@ -7,29 +7,34 @@ const ToggleSwitch = () => {
   const { currentTemperatureUnit, handleToggleSwitchChange } = useContext(
     CurrentTemperatureUnitContext
   );
-  const [checkedOne, setCheckedOne] = React.useState(false);
-  const [checkedTwo, setCheckedTwo] = React.useState(false);
+  // const [checkedOne, setCheckedOne] = React.useState(false);
+  // const [checkedTwo, setCheckedTwo] = React.useState(false);
 
   const checkboxOneReference = useRef(null);
 
   const checkboxTwoReference = useRef(null);
 
-  const handleChangeOne = () => {
-    setCheckedOne(!checkedOne);
-  };
+  // const handleChangeOne = () => {
+  //   setCheckedOne(!checkedOne);
+  // };
 
-  const handleChangeTwo = () => {
-    setCheckedTwo(!checkedTwo);
+  // const handleChangeTwo = () => {
+  //   setCheckedTwo(!checkedTwo);
+  // };
+
+const handleChange = () => {
+    // Call the context handler when user clicks
+    handleToggleSwitchChange();
   };
 
   useEffect(() => {
-    handleToggleSwitchChange();
+    // handleToggleSwitchChange();
     const box1 = checkboxOneReference.current;
     const box2 = checkboxTwoReference.current;
 
-    console.log(box1);
+    // console.log(box1);
 
-    console.log(box2);
+    // console.log(box2);
     if (!box1 || !box2) return;
 
     // When checkbox one is active, bring it to front
@@ -41,10 +46,10 @@ const ToggleSwitch = () => {
     //   box2.style.opacity = 0.6;
     // }
 
-    console.log(box1.style.zIndex);
+    // console.log(box1.style.zIndex);
 
     if (box1.style.zIndex === "2") {
-      console.log(checkedOne, checkedTwo);
+      // console.log(checkedOne, checkedTwo);
 
       box1.style.zIndex = 1;
       box1.style.opacity = 0.5;
@@ -62,23 +67,25 @@ const ToggleSwitch = () => {
     //   box1.style.zIndex = 1;
     //   box1.style.opacity = 0.6;
     // }
-  }, [checkedOne, checkedTwo]);
+  }, [currentTemperatureUnit]);
 
   return (
     <div className="toggleSwitch">
       <Checkbox
         className="checkbox1"
         label="F"
-        value={checkedOne}
-        onChange={handleChangeOne}
+        value={currentTemperatureUnit === "F"}
+        onChange={handleChange}
+        id = "temp-switch-f"
         reference={checkboxOneReference}
       />
       <Checkbox
         className="checkbox2"
         label="C"
-        value={checkedTwo}
-        onChange={handleChangeTwo}
+        value={currentTemperatureUnit === "C"}
+        onChange={handleChange}
         reference={checkboxTwoReference}
+        id="temp-switch-c"
       />
     </div>
   );
