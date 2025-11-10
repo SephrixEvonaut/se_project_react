@@ -1,8 +1,19 @@
+//REACT IMPORTS
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+//COMPONENTS
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
+
+import ItemModal from "../ItemModal/ItemModal";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import Profile from "../Profile/Profile";
+import AddItemModal from "../AddItemModal/AddItemModal";
+
+// UTIL AND API
 import {
   // defaultClothingItems,
   deleteClothingItems,
@@ -10,12 +21,11 @@ import {
   postClothingItems,
 } from "../../utils/Api";
 import { getWeatherCondition } from "../../utils/weatherApi";
-import ItemModal from "../ItemModal/ItemModal";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
+//CONTEXTS 
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Profile from "../Profile/Profile";
-import AddItemModal from "../AddItemModal/AddItemModal";
+
+
 
 function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -112,27 +122,7 @@ function App() {
     setActiveModal("itemModal");
   }
 
-  function validateInputs() {
-    if (!name || !image || !weatherType) return false;
-
-    try {
-      new URL(image);
-      return true;
-    } catch {
-      return false;
-    }
-  }
-
-  const [isDisabled, setIsDisabled] = useState(true);
-  useEffect(() => {
-    let validationPassed = validateInputs();
-    if (validationPassed) {
-      // console.log("removing disable");
-      setIsDisabled(false);
-      // document.querySelector(".modal__save-btn")?.classList.remove("disabled");
-    }
-  }, [name, image, weatherType]);
-
+  
   return (
     <Router>
       <CurrentTemperatureUnitContext.Provider
@@ -245,7 +235,7 @@ function App() {
           </div>
         </ModalWithForm> */}
         <AddItemModal
-          isDisabled={isDisabled}
+          
           handleClose={handleClose}
           isOpen={activeModal === "garmentModal"}
           fetchClothingItems={fetchClothingItems}

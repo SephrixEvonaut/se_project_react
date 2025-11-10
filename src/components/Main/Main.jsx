@@ -17,10 +17,7 @@ export default function Main({
   const filteredCards = cards?.filter(
     (card) =>
       card.weather ===
-      checkWeatherType(
-        weatherData?.temperature &&
-          weatherData?.temperature[currentTemperatureUnit]
-      )
+      checkWeatherType(weatherData?.temperature && weatherData?.temperature?.F)
   );
 
   // console.log(currentTemperatureUnit);

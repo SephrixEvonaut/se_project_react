@@ -4,6 +4,7 @@ import "./ToggleSwitch.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 const ToggleSwitch = () => {
+  const [count, setCount] = useState(0);
   const { currentTemperatureUnit, handleToggleSwitchChange } = useContext(
     CurrentTemperatureUnitContext
   );
@@ -22,51 +23,31 @@ const ToggleSwitch = () => {
   //   setCheckedTwo(!checkedTwo);
   // };
 
-const handleChange = () => {
+  const handleChange = () => {
     // Call the context handler when user clicks
     handleToggleSwitchChange();
   };
 
   useEffect(() => {
-    // handleToggleSwitchChange();
     const box1 = checkboxOneReference.current;
     const box2 = checkboxTwoReference.current;
 
-    // console.log(box1);
-
-    // console.log(box2);
     if (!box1 || !box2) return;
 
-    // When checkbox one is active, bring it to front
-    // if (checkedOne && !checkedTwo) {
-    //   console.log(checkedOne, checkedTwo);
-    //   box1.style.zIndex = 2;
-    //   box1.style.opacity = 1;
-    //   box2.style.zIndex = 1;
-    //   box2.style.opacity = 0.6;
-    // }
-
-    // console.log(box1.style.zIndex);
-
-    if (box1.style.zIndex === "2") {
-      // console.log(checkedOne, checkedTwo);
-
-      box1.style.zIndex = 1;
-      box1.style.opacity = 0.5;
-      box2.style.opacity = 1;
-    } else {
+    // When F is selected, bring F checkbox to front
+    if (currentTemperatureUnit === "F") {
       box1.style.zIndex = 2;
       box1.style.opacity = 1;
+      box2.style.zIndex = 1;
+      box2.style.opacity = 0.6;
     }
-
-    // When checkbox two is active, bring it to front
-    // else if (checkedTwo && !checkedOne) {
-    //   console.log(checkedOne, checkedTwo);
-    //   box2.style.zIndex = 2;
-    //   box2.style.opacity = 1;
-    //   box1.style.zIndex = 1;
-    //   box1.style.opacity = 0.6;
-    // }
+    // When C is selected, bring C checkbox to front
+    else {
+      box2.style.zIndex = 2;
+      box2.style.opacity = 1;
+      box1.style.zIndex = 1;
+      box1.style.opacity = 0.6;
+    }
   }, [currentTemperatureUnit]);
 
   return (
@@ -74,9 +55,9 @@ const handleChange = () => {
       <Checkbox
         className="checkbox1"
         label="F"
-        value={currentTemperatureUnit === "F"}
+        value={currentTemperatureUnit === "C"}
         onChange={handleChange}
-        id = "temp-switch-f"
+        id="temp-switch-f"
         reference={checkboxOneReference}
       />
       <Checkbox
@@ -91,18 +72,18 @@ const handleChange = () => {
   );
 };
 
-const Checkbox = ({ label, value, onChange, className, reference }) => {
+const Checkbox = ({ label, value, onChange, className, reference, id }) => {
   return (
     <div className={className} ref={reference}>
       <input
         className="react-switch-checkbox"
-        id={`react-switch-new`}
+        id={id}
         type="checkbox"
         checked={value}
         onChange={onChange}
       />
 
-      <label className="react-switch-label" htmlFor={`react-switch-new`}>
+      <label className="react-switch-label" htmlFor={id}>
         <span className={`react-switch-button`}>{label}</span>
       </label>
     </div>

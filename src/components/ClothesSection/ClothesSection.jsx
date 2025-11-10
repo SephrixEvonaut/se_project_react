@@ -2,23 +2,26 @@ import React from "react";
 import "./ClothesSection.css";
 import { checkWeatherType } from "../../utils/weatherApi";
 import ItemCard from "../ItemCard/ItemCard";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
+import { useContext } from "react";
 
 const ClothesSection = ({
   handleOpen,
   cards,
   weatherData,
   handleOpenItemModal,
-  currentTemperatureUnit,
   handleSubmit,
 }) => {
-  const filteredCards = (cards || []).filter(
-    (card) =>
-      card.weather ===
-      checkWeatherType(
-        weatherData?.temperature &&
-          weatherData?.temperature[currentTemperatureUnit]
-      )
-  );
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
+  // const filteredCards = (cards || []).filter(
+  //   (card) =>
+  //     card.weather ===
+  //     checkWeatherType(
+  //       weatherData?.temperature &&
+  //         weatherData?.temperature[currentTemperatureUnit]
+  //     )
+  // );
   // console.log(filteredCards);
   return (
     <div>
@@ -30,11 +33,11 @@ const ClothesSection = ({
         </div>
       </div>
       <div className="items__card-list">
-        {filteredCards.map((filteredCard) => (
+        {cards.map((card) => (
           <ItemCard
             handleOpenItemModal={handleOpenItemModal}
-            card={filteredCard}
-            key={filteredCard._id}
+            card={card}
+            key={card._id}
           />
         ))}
       </div>

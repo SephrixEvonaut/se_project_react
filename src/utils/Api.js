@@ -1,5 +1,3 @@
-import { latitude, longitude, apiKey } from "./constants";
-
 const baseUrl = "http://localhost:3001";
 
 // Shared helper to check API responses

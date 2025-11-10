@@ -149,6 +149,66 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Beanie.png?etag=bc10497cc80fa557f036e94f9999f7b2",
       "weather": "cold",
       "_id": 36
+    },
+    {
+      "name": "eee",
+      "imageUrl": "https://pixabay.com/photos/model-rock-punk-goth-aesthetic-9657359/",
+      "weather": "cold",
+      "_id": 37
+    },
+    {
+      "name": "eee",
+      "imageUrl": "https://pixabay.com/photos/model-rock-punk-goth-aesthetic-9657359/",
+      "weather": "warm",
+      "_id": 38
+    },
+    {
+      "name": "eee",
+      "imageUrl": "https://cdn.pixabay.com/photo/2025/06/13/05/57/model-9657359_1280.jpg",
+      "weather": "warm",
+      "_id": 39
+    },
+    {
+      "name": "eee",
+      "imageUrl": "https://pixabay.com/photos/model-rock-punk-goth-aesthetic-9657359/",
+      "weather": "warm",
+      "_id": 40
+    },
+    {
+      "name": "eeee",
+      "imageUrl": "https://cdn.pixabay.com/photo/2025/06/13/05/57/model-9657359_1280.jpg",
+      "weather": "warm",
+      "_id": 41
+    },
+    {
+      "name": "eeee",
+      "imageUrl": "https://cdn.pixabay.com/photo/2025/06/25/22/55/lavender-9680870_1280.jpg",
+      "weather": "",
+      "_id": 42
+    },
+    {
+      "name": "",
+      "imageUrl": "",
+      "weather": "",
+      "_id": 43
+    },
+    {
+      "name": "eee",
+      "imageUrl": "https://pixabay.com/photos/model-rock-punk-goth-aesthetic-9657359/",
+      "weather": "warm",
+      "_id": 44
+    },
+    {
+      "name": "eeeeee",
+      "imageUrl": "https://pixabay.com/photos/model-rock-punk-goth-aesthetic-9657359/",
+      "weather": "warm",
+      "_id": 45
+    },
+    {
+      "name": "eeeeee",
+      "imageUrl": "https://pixabay.com/photos/model-rock-punk-goth-aesthetic-9657359/",
+      "weather": "warm",
+      "_id": 46
     }
   ]
 }

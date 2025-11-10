@@ -2,18 +2,37 @@ import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 import { postClothingItems } from "../../utils/Api";
+import { useState, useEffect } from "react";
 
-const AddItemModal = ({
-  isOpen,
-  isDisabled,
-  handleClose,
-  fetchClothingItems,
-}) => {
-  const { values, handleChange } = useForm({
+const AddItemModal = ({ isOpen, handleClose, fetchClothingItems }) => {
+  const { values, setValues, handleChange } = useForm({
     name: "",
     image: "",
     weatherType: "",
   });
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  function validateInputs() {
+    if (!values?.name || !values?.image || !values?.weatherType) return false;
+
+    try {
+      new URL(values?.image);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  useEffect(() => {
+    let validationPassed = validateInputs();
+    console.log("validationPassed:", validationPassed);
+    if (validationPassed) {
+      // console.log("removing disable");
+      setIsDisabled(false);
+      // document.querySelector(".modal__save-btn")?.classList.remove("disabled");
+    }
+  }, [values]);
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -22,8 +41,11 @@ const AddItemModal = ({
         values?.image,
         values?.weatherType
       );
+
       await fetchClothingItems();
+
       handleClose();
+      setValues({ name: "", image: "", weatherType: "" });
       // setClothingItems(postClothingItemsRes);
     } catch (error) {
       console.error("❌ Error posting clothing items:", error);
@@ -51,6 +73,7 @@ const AddItemModal = ({
           placeholder="Name"
           type="text"
           id="name"
+          value={values.name}
           required
         />
       </div>
@@ -63,6 +86,7 @@ const AddItemModal = ({
           placeholder="Image URL"
           type="text"
           id="image"
+          value={values.image}
           required
         />
       </div>
@@ -71,6 +95,7 @@ const AddItemModal = ({
         <p>Select weather type:</p>
         <div className="input__checkbox">
           <input
+            checked={values?.weatherType === "hot"}
             onChange={handleChange}
             name="weatherType"
             type="radio"
@@ -82,6 +107,7 @@ const AddItemModal = ({
         </div>
         <div className="input__checkbox">
           <input
+            checked={values?.weatherType === "warm"}
             onChange={handleChange}
             name="weatherType"
             type="radio"
@@ -93,6 +119,7 @@ const AddItemModal = ({
         </div>
         <div className="input__checkbox">
           <input
+            checked={values?.weatherType === "cold"}
             onChange={handleChange}
             name="weatherType"
             type="radio"

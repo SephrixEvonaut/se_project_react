@@ -20,7 +20,6 @@ const Profile = ({
           cards={cards}
           weatherData={weatherData}
           handleOpenItemModal={handleOpenItemModal}
-          currentTemperatureUnit={currentTemperatureUnit}
           handleSubmit={handleSubmit}
         ></ClothesSection>
       </div>
